@@ -4,7 +4,7 @@ class Pizza(db.Model):
   __tablename__ = 'pizzas'
   
   id = db.Column(db.Integer,primary_key=True)
-  flavour = db.column(db.String(255))
+  flavour = db.Column(db.String(255))
   size =db.Column(db.String(255))
   price = db.Column(db.String(255))
   crust = db.Column(db.String(255))
