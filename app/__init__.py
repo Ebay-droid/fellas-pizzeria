@@ -37,28 +37,26 @@ def create_app(config_name):
                     'price':pizza.price,
                     'crust':pizza.crust,
                     'toppings':pizza.toppings
-                    
-                    
                 }) 
                 response.status_code = 201
                 return response
             
-            else:
-                pizzas = Pizza.get_all()
-                results = []
-                
-                for pizza in pizzas:
-                    obj = {
-                    'id': pizza.id,
-                    'flavour': pizza.flavour,
-                    'size':pizza.size,
-                    'price':pizza.price,
-                    'crust':pizza.crust,
-                    'toppings':pizza.toppings
-                    }
-                    results.append(obj)
-                    response = jsonify(results)
-                    return response
+        else:
+            pizzas = Pizza.get_all()
+            results = []
+            
+            for pizza in pizzas:
+                obj = {
+                'id': pizza.id,
+                'flavour': pizza.flavour,
+                'size':pizza.size,
+                'price':pizza.price,
+                'crust':pizza.crust,
+                'toppings':pizza.toppings
+                }
+            results.append(obj)
+            response = jsonify(results)
+            return response
             
     @app.route('/pizzas/<int:id>',methods=['GET', 'PUT', 'DELETE'])   
     def pizza_manipulation(id, **kwargs):
