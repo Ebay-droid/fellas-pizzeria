@@ -6,16 +6,16 @@ class Pizza(db.Model):
   id = db.Column(db.Integer,primary_key=True)
   flavour = db.column(db.String(255))
   size =db.Column(db.String(255))
-  price = db.Column(db.Integer)
+  price = db.Column(db.String(255))
   crust = db.Column(db.String(255))
   toppings = db.Column(db.String(255))
   
   
-  def __init__(self,id,flavour,size, price, crust, toppings):
+  def __init__(self,flavour,size, price, crust, toppings):
     '''
     initialize with flavour
     '''
-    self.id = id
+    
     self.flavour = flavour,
     self.size = size,
     self.price = price,

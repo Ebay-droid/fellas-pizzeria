@@ -24,11 +24,11 @@ def create_app(config_name):
         if request.method =="POST":
             flavour = str(request.data.get('flavour',''))
             size =str(request.data.get('size',''))
-            price = int(request.data.get('price',''))
+            price = str(request.data.get('cost','899'))
             crust =str(request.data.get('crust',''))
             toppings = str(request.data.get('toppings',''))
             if flavour:
-                pizza = Pizza(id=id,flavour=flavour,size=size,price=price,crust=crust,toppings=toppings)
+                pizza = Pizza(flavour=flavour,size=size,price=price,crust=crust,toppings=toppings)
                 pizza.save_pizza()
                 response =jsonify({
                     'id': pizza.id,

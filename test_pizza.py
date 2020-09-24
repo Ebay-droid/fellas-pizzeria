@@ -13,7 +13,7 @@ class PizzaTestCase(unittest.TestCase):
   def setUp(self):
     self.app = create_app(config_name='testing')
     self.client = self.app.test_client
-    self.pizza ={'flavour':'Hawaian','size':'large','price':1000,'crust':'thin','topping':'none'}
+    self.pizza ={'flavour':'Hawaian'}
     
     with self.app.app_context():
       db.create_all()
